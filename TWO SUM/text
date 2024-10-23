@@ -1,0 +1,193 @@
+As a distinguished expert trader with an exhaustive knowledge of the stock market dynamics, your task is to construct a profitable trading strategy that efficiently makes use of technical indicators. 
+
+Consider the following profile of the Trader: 
+
+Primary Trading Goals: Capital appreciation
+
+Strategy For: Swing Trading
+
+Risk Tolerance Level: Moderate
+
+Percentage of Capital Risked on a Single Trade: 1% - 3%
+
+Type of Trading Strategy: Swing trading
+
+Preferred Markets/Sectors: Technology
+
+Based on the Trader's profile, you are to design a tailor-made trading strategy that seeks not just to augment returns, but also to align with the trader's unique attributes and expectations.
+
+The robustness of your strategy must be evident in its explicit entry conditions, each rooted in solid analysis of pertinent technical indicators.
+
+Your trading strategy must be well-engineered and comprehensive, incorporating clear rules for entry and exit points, principles for risk management, and the flexibility to adapt to varying market conditions. While designing the strategy, keep in view the trader's unique profile. The strategy must reflect the trader's risk tolerance, capital allocation approach, and time horizon for investment. The ideal strategy strikes a balance between disciplined consistency and agility, optimizing returns while managing risk effectively.
+
+Here is the list of indicators with its parameters (it is represented as 'technical indicator name': [parameter, …]).
+
+'sma': ['field', 'timeperiod']
+
+'wma': [field', 'timeperiod']
+
+'cci': ['field' = high, 'field' = low, 'field' = close, 'timeperiod']
+
+'ema': ['field', 'timeperiod']
+
+'adx': ['field' = high,'field' =  low, 'field' = close, 'timeperiod']
+
+'willr': ['field' = high, 'field' = low, 'field' = close, 'timeperiod']
+
+'mfi': ['field' = high, 'field' = low, 'field' = close, 'field' = volume, 'timeperiod']
+
+'roc': [field', 'timeperiod']
+
+'ultosc': ['field' = high, 'field' = low, 'field' = close,'timeperiod1', 'timeperiod2', 'timeperiod3']
+
+'atr': ['field' = high,'field' =  low, 'field' = close, 'timeperiod']
+
+Strict Note: We have \"operators\": \"CROSSOVER\", \"CROSSDOWN\", \">\", \"<\", \"=\", \">=\", \"<=\". You have to use only above operators, not others. 
+
+'field' can be [high, low, close, volume, open]
+
+'parameter' can be [field, timeperiod]
+
+Output-1 is the strategy. 
+
+<Output-1>
+
+{
+
+    \"strategy_name\": \"[Strategy Name]\",
+
+  \"overview\": \"[Write Overview about the strategy in 100 words]\",
+
+  \"key_actions\": {
+
+  \"entry_rules\": {
+
+    \"condition_type\": \"[Specify if 'all' or 'any']\",
+
+      \"rules\": \"[Write numbered Entry rules here]\"
+
+    },
+
+    \"exit_rules\": {
+
+    \"condition_type\": \"[Specify if 'all' or 'any']\",
+
+      \"rules\": \"[Write numbered Exit rules here]\"
+
+    },
+
+    \"stop_loss\": \"[Write stop loss here]\",
+
+    \"take_profit\": \"[Write take profit here]\",
+
+    \"How strategy Works\": \"[Explain how this strategy will work in easy words]\"
+
+}
+
+}
+
+For indicators that contain multiple keys \"field\", use \"fieldN\" for every field where N denotes the number of the field.
+
+Output-2 (i.e. Entry Condition) and Output-3 (i.e. Exit Condition) is the above strategy represented in JSON.
+
+<Output-2>
+
+For Entry Condition:
+
+{
+
+    \"entry_conditions\": {
+
+  \"condition_type\": \"[Specify if 'all' or 'any']\",
+
+    \"rules\": [
+
+    {
+
+        \"indicatorN\": {
+
+        \"name\": \"name_of_the_indicator\",
+
+          \"parameters\": {
+
+          // parameters of the indicator
+
+        }
+
+        },
+
+        \"operator\": \"name_of_the_operator\",
+
+        \"indicatorN+1\": {
+
+        \"name\": \"name_of_the_indicator\",
+
+          \"parameters\": {
+
+          // parameters of the indicator
+
+        }
+
+        }
+
+        ...
+
+        }
+
+      ]
+
+}
+
+}
+
+<Output-3>
+
+For Exit Condition:
+
+{
+
+    \"exit_conditions\": {
+
+  \"condition_type\": \"[Specify if 'all' or 'any']\",
+
+    \"rules\": [
+
+    {
+
+        \"indicatorN\": {
+
+        \"name\": \"name_of_the_indicator\",
+
+          \"parameters\": {
+
+          // parameters of the indicator
+
+        }
+
+        },
+
+        \"operator\": \"name_of_the_operator\",
+
+        \"indicatorN+1\": {
+
+        \"name\": \"name_of_the_indicator\",
+
+          \"parameters\": {
+
+          // parameters of the indicator
+
+        }
+
+        }
+
+        ...
+
+        }
+
+      ]
+
+}
+
+}
+
+Do not write anything other than Output-1, Output-2, and Output-3 and provide the output solely on JSON without adding any text.
